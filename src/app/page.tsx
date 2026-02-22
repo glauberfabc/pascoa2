@@ -113,17 +113,48 @@ export default function Home() {
           </section>
 
           {/* Section 4 */}
-          <section className="h-screen flex items-center justify-center px-4 md:px-12">
-            <div className="max-w-[95%] md:max-w-2xl text-center backdrop-blur-md bg-white/40 p-6 md:p-10 rounded-2xl md:rounded-3xl border border-white/80 shadow-[0_0_50px_rgba(255,255,255,0.4)]">
+          <section className="min-h-screen flex items-center justify-center px-4 md:px-12 py-24 relative z-20">
+            <div className="max-w-[95%] md:max-w-4xl text-center backdrop-blur-xl bg-white/70 p-6 md:p-12 rounded-2xl md:rounded-3xl border border-white/80 shadow-[0_0_50px_rgba(255,255,255,0.4)]">
               <h2 className="text-3xl md:text-6xl font-black mb-6" style={{ color: activeProduct.textColor }}>
                 {activeProduct.section4.title}
               </h2>
-              <p className="text-lg md:text-2xl text-slate-700 mb-8 max-w-xl mx-auto">
+              <p className="text-lg md:text-2xl text-slate-700 mb-8 max-w-2xl mx-auto font-medium">
                 {activeProduct.section4.description}
               </p>
 
+              <div className="bg-white/60 rounded-2xl p-6 md:p-8 text-left mb-8 border border-white/80 shadow-md">
+                <h3 className="text-2xl md:text-3xl font-black text-center text-pink-600 mb-6">
+                  O que você irá receber:
+                </h3>
+
+                <div className="flex flex-col md:flex-row gap-4 mb-8 justify-center">
+                  <div className="flex items-center justify-center gap-3 bg-white/90 px-4 py-3 rounded-xl shadow-sm text-purple-900 font-bold border border-purple-100">
+                    <span className="text-2xl">🎥</span> Aulas passo a passo
+                  </div>
+                  <div className="flex items-center justify-center gap-3 bg-white/90 px-4 py-3 rounded-xl shadow-sm text-purple-900 font-bold border border-purple-100">
+                    <span className="text-2xl">📚</span> Material de Apoio
+                  </div>
+                  <div className="flex items-center justify-center gap-3 bg-white/90 px-4 py-3 rounded-xl shadow-sm text-purple-900 font-bold border border-purple-100">
+                    <span className="text-2xl">🍫</span> Temperagem Descomplicada
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-800 font-bold text-sm md:text-base bg-white/40 p-6 rounded-xl border border-white/50">
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M01</span> Comece por aqui</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M02</span> Técnicas Infalíveis</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M03</span> Modelando a Casca</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M04</span> Recheios</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M05</span> Ovos de Colher</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M06</span> Ovos Especiais</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M07</span> Ovo Coloridos</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M08</span> Ovos Infantis</div>
+                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M09</span> Embalagens - Técnicas e tipos</div>
+                  <div className="flex items-center gap-3"><span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-0.5 rounded-md text-xs">M10</span> Bônus Exclusivos</div>
+                </div>
+              </div>
+
               <div className="flex justify-center mt-8">
-                <button className="px-8 md:px-10 py-3 md:py-4 rounded-full font-bold shadow-xl text-lg md:text-xl transition-transform hover:scale-105 bg-gradient-to-r from-pink-400 to-purple-500 text-white animate-pulse hover:animate-none hover:shadow-[0_0_30px_rgba(255,182,193,0.8)]">
+                <button className="px-8 md:px-10 py-4 md:py-5 rounded-full font-black shadow-2xl text-xl transition-transform hover:scale-105 bg-gradient-to-r from-pink-400 to-purple-500 text-white animate-pulse hover:animate-none hover:shadow-[0_0_40px_rgba(255,182,193,1)]">
                   Quero Começar Agora
                 </button>
               </div>
