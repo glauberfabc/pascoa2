@@ -139,17 +139,45 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-800 font-bold text-sm md:text-base bg-white/40 p-6 rounded-xl border border-white/50">
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M01</span> Comece por aqui</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M02</span> Técnicas Infalíveis</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M03</span> Modelando a Casca</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M04</span> Recheios</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M05</span> Ovos de Colher</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M06</span> Ovos Especiais</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M07</span> Ovo Coloridos</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M08</span> Ovos Infantis</div>
-                  <div className="flex items-center gap-3"><span className="bg-pink-400 text-white px-2 py-0.5 rounded-md text-xs">M09</span> Embalagens - Técnicas e tipos</div>
-                  <div className="flex items-center gap-3"><span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-0.5 rounded-md text-xs">M10</span> Bônus Exclusivos</div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                  {[
+                    { id: 1, title: 'Comece por aqui' },
+                    { id: 2, title: 'Técnicas Infalíveis' },
+                    { id: 3, title: 'Modelando a Casca' },
+                    { id: 4, title: 'Recheios' },
+                    { id: 5, title: 'Ovos de Colher' },
+                    { id: 6, title: 'Ovos Especiais' },
+                    { id: 7, title: 'Ovo Coloridos' },
+                    { id: 8, title: 'Ovos Infantis' },
+                    { id: 9, title: 'Embalagens - Técnicas e tipos' },
+                    { id: 10, title: 'Bônus Exclusivos' },
+                  ].map((mod, i) => (
+                    <motion.div
+                      key={mod.id}
+                      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.4, delay: i * 0.05 }}
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="bg-white rounded-xl overflow-hidden shadow-md border border-pink-100 flex flex-col items-center group cursor-pointer"
+                    >
+                      <div className="w-full h-24 md:h-32 overflow-hidden bg-pink-50 flex items-center justify-center">
+                        <motion.img
+                          src={`/images/site/m${mod.id}.webp`}
+                          alt={mod.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                      <div className="p-3 text-center w-full flex-grow flex flex-col items-center justify-center gap-1.5">
+                        <span className={`text-white px-2 py-0.5 rounded-md text-[10px] md:text-xs font-black tracking-wider uppercase ${mod.id === 10 ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-pink-400'}`}>
+                          Módulo {mod.id.toString().padStart(2, '0')}
+                        </span>
+                        <span className="text-slate-800 font-bold text-xs md:text-sm leading-tight group-hover:text-pink-600 transition-colors">
+                          {mod.title}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
