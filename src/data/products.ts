@@ -33,8 +33,8 @@ export const products: Product[] = [
             description: "Descubra o método de produção em série para quem quer lucro rápido sem precisar de equipamentos profissionais. Transforme sua cozinha em uma verdadeira fábrica de delícias.",
         },
         section2: {
-            title: "Produção Independente",
-            description: "Aprenda a otimizar o seu tempo. Mesmo que você nunca tenha feito um ovo de Páscoa na vida, nosso método prático vai te ensinar o passo a passo da embalagem à venda.",
+            title: "A OPORTUNIDADE (O RELÓGIO ESTÁ CORRENDO)",
+            description: "O calendário não mente: faltam poucas semanas para a Páscoa. Enquanto a maioria das pessoas vai tentar vender ovos de forma amadora, passando noites em claro e lucrando pouco, existe um grupo que vai faturar alto usando a ENGENHARIA DE PRODUÇÃO. Você não precisa ser uma confeiteira profissional. Você só precisa do método certo para transformar sua cozinha em uma pequena fábrica altamente lucrativa por apenas 15 dias.",
         },
         section3: {
             title: "Lucro Certo",
