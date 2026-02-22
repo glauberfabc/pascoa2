@@ -16,7 +16,7 @@ export default function Footer() {
                     <BookOpen className="w-8 h-8 text-blue-400" />
                 </div>
                 <p className="max-w-md mx-auto text-blue-900 font-medium">
-                    Comece agora a construir seu novo negócio e lucre alto nesta Páscoa, direto da sua cozinha.
+                    Sua jornada para uma Páscoa lucrativa e próspera começa agora. Não deixe essa oportunidade passar.
                 </p>
                 <button className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1">
                     Garantir Vaga

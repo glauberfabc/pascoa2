@@ -60,7 +60,35 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Nova Seção: Oportunidade */}
+          <section className="h-screen flex items-center justify-center px-4 md:px-12 relative z-20">
+            <div className="max-w-[95%] md:max-w-4xl text-center backdrop-blur-xl bg-white/40 p-8 md:p-12 rounded-3xl border border-white/80 shadow-2xl">
+              <h2 className="text-3xl md:text-5xl font-black mb-6 text-purple-900 leading-tight">
+                Comece agora a construir seu novo negócio e lucre alto nesta Páscoa, direto da sua cozinha.
+              </h2>
+              <p className="text-lg md:text-2xl text-slate-700 mb-8 max-w-2xl mx-auto font-medium">
+                Você não precisa de equipamentos caros ou experiência prévia. Nosso método foi desenhado para te dar resultados rápidos com o que você já tem em casa.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-10">
+                <div className="bg-white/60 p-6 rounded-2xl shadow-sm border border-white text-center hover:-translate-y-1 transition-transform">
+                  <h3 className="text-xl font-bold text-pink-600 mb-2">Baixo Custo</h3>
+                  <p className="text-sm md:text-base text-slate-600">Inicie com os utensílios que você já possui na cozinha.</p>
+                </div>
+                <div className="bg-white/60 p-6 rounded-2xl shadow-sm border border-white text-center hover:-translate-y-1 transition-transform">
+                  <h3 className="text-xl font-bold text-purple-600 mb-2">Rápido Retorno</h3>
+                  <p className="text-sm md:text-base text-slate-600">Aprenda hoje e comece a pegar encomendas amanhã.</p>
+                </div>
+                <div className="bg-white/60 p-6 rounded-2xl shadow-sm border border-white text-center hover:-translate-y-1 transition-transform">
+                  <h3 className="text-xl font-bold text-blue-600 mb-2">Vendas Certas</h3>
+                  <p className="text-sm md:text-base text-slate-600">Estratégias validadas para você vender todo o estoque.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Section 2 */}
+
           <section id="producao" className="h-screen flex items-center justify-center md:justify-end px-8 md:px-24">
             <div className="max-w-[90%] md:max-w-md backdrop-blur-sm bg-white/30 p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/60 shadow-2xl mix-blend-lighten text-center md:text-right">
               <h2 className="text-2xl md:text-5xl font-bold mb-4" style={{ color: activeProduct.textColor }}>
