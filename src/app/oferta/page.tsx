@@ -2,6 +2,49 @@
 
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
+const CountdownBox = () => {
+  const [timeLeft, setTimeLeft] = useState(15 * 60);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+
+  return (
+    <div className="w-full bg-red-50 border border-red-200 rounded-3xl p-6 md:p-8 text-center my-8 shadow-inner relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <h2 className="text-3xl md:text-5xl font-black text-red-600 mb-4 animate-bounce relative z-10 w-full whitespace-normal">
+        ⚠️ ÚLTIMA CHANCE! ⚠️
+      </h2>
+      <p className="text-lg md:text-xl text-red-800 font-bold mb-6 relative z-10 w-full whitespace-normal">
+        Essa oferta exclusiva com <span className="underline">desconto extra</span> vai expirar em:
+      </p>
+      <div className="flex gap-3 md:gap-4 justify-center items-center relative z-10">
+        <div className="flex flex-col items-center">
+          <div className="bg-gradient-to-b from-red-600 to-red-700 text-white font-black text-4xl md:text-6xl p-4 md:p-6 rounded-2xl shadow-xl border-t-2 border-red-400 w-20 md:w-28 flex justify-center">
+            {String(minutes).padStart(2, '0')}
+          </div>
+          <span className="text-red-700 font-black mt-2 text-sm md:text-base tracking-widest whitespace-normal">MINUTOS</span>
+        </div>
+        <div className="text-red-600 font-black text-4xl md:text-6xl pb-6 animate-pulse">:</div>
+        <div className="flex flex-col items-center">
+          <div className="bg-gradient-to-b from-red-600 to-red-700 text-white font-black text-4xl md:text-6xl p-4 md:p-6 rounded-2xl shadow-xl border-t-2 border-red-400 w-20 md:w-28 flex justify-center">
+            {String(seconds).padStart(2, '0')}
+          </div>
+          <span className="text-red-700 font-black mt-2 text-sm md:text-base tracking-widest whitespace-normal">SEGUNDOS</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 import { products } from "@/data/products";
 import ProductBottleScroll from "@/components/ProductBottleScroll";
 import Navbar from "@/components/Navbar";
@@ -9,23 +52,6 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   const activeProduct = products[0];
-  const [showOfferPopup, setShowOfferPopup] = useState(false);
-
-  useEffect(() => {
-    // Inject a new state into the history stack
-    window.history.pushState({ page: "back-redirect" }, "", "");
-
-    const handlePopState = () => {
-      // Redirect to the /oferta page when the user tries to go back
-      window.location.href = "/oferta";
-    };
-
-    window.addEventListener("popstate", handlePopState);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, []);
 
   return (
     <main
@@ -221,6 +247,8 @@ export default function Home() {
                 </div>
 
                 {/* Planos Section */}
+                <CountdownBox />
+
                 <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch pb-16">
 
                   {/* Plano Básico */}
@@ -242,7 +270,7 @@ export default function Home() {
                       <div className="flex flex-col items-center justify-center mb-8 bg-slate-50/50 w-full py-4 rounded-xl border border-slate-100 relative">
                         <div className="flex items-start text-slate-700 font-black drop-shadow-sm">
                           <span className="mt-2 text-2xl mr-1">R$</span>
-                          <span className="text-5xl leading-none tracking-tighter">9</span>
+                          <span className="text-5xl leading-none tracking-tighter">8</span>
                           <span className="mt-1 text-2xl">,90</span>
                         </div>
                       </div>
@@ -261,10 +289,7 @@ export default function Home() {
                         ))}
                       </ul>
 
-                      <button
-                        onClick={() => setShowOfferPopup(true)}
-                        className="w-full relative px-6 py-4 rounded-xl font-bold text-lg transition-all bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300 flex items-center justify-center gap-2 mt-auto"
-                      >
+                      <button className="w-full relative px-6 py-4 rounded-xl font-bold text-lg transition-all bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300 flex items-center justify-center gap-2 mt-auto">
                         COMEÇAR BÁSICO
                       </button>
                     </div>
@@ -302,7 +327,7 @@ export default function Home() {
                         <span className="text-slate-400 line-through text-lg font-bold mb-1 relative z-10">De R$ 197,00</span>
                         <div className="flex items-start text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 font-black drop-shadow-sm relative z-10">
                           <span className="mt-2 text-3xl mr-1">R$</span>
-                          <span className="text-6xl md:text-8xl leading-none tracking-tighter hover:scale-105 transition-transform cursor-default">19</span>
+                          <span className="text-6xl md:text-8xl leading-none tracking-tighter hover:scale-105 transition-transform cursor-default">14</span>
                           <span className="mt-2 text-3xl">,90</span>
                         </div>
                       </div>
@@ -345,63 +370,6 @@ export default function Home() {
       </div>
 
       <Footer />
-
-      {/* Offer Popup Modal */}
-      <AnimatePresence>
-        {showOfferPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setShowOfferPopup(false)}
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg bg-white rounded-3xl p-6 md:p-8 shadow-2xl border-4 border-pink-400 overflow-hidden text-center z-10"
-            >
-              {/* Confeti de fundo animado */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse" style={{ animationDelay: '1s' }}></div>
-
-              <div className="mx-auto w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-black text-slate-800 mb-2 leading-tight">
-                ESPERE! Não perca sua <span className="text-pink-600">Última Chance</span>
-              </h2>
-              <p className="text-slate-600 mb-6 font-medium">
-                Leve o <strong className="text-slate-800">PLANO COMPLETO</strong> com todos os Acessos Vitálicios, Bônus VIP e Atualizações por apenas:
-              </p>
-
-              <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-4 mb-6 border border-pink-100 shadow-inner inline-block w-full">
-                <span className="text-slate-400 line-through text-lg font-bold block mb-1">De R$ 19,90</span>
-                <div className="flex items-start justify-center text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 font-black drop-shadow-sm">
-                  <span className="mt-2 text-2xl mr-1">R$</span>
-                  <span className="text-6xl md:text-7xl leading-none tracking-tighter">14</span>
-                  <span className="mt-1 text-2xl">,90</span>
-                </div>
-              </div>
-
-              <button className="w-full mb-4 relative overflow-hidden group/btn px-6 py-4 rounded-xl font-black text-lg shadow-[0_10px_30px_-5px_rgba(236,72,153,0.5)] transition-all hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] hover:bg-right text-white border-b-4 border-purple-800">
-                SIM! QUERO O PLANO COMPLETO
-              </button>
-
-              <button
-                onClick={() => {
-                  window.location.href = "https://checkout.example.com/basico"; // Substituir com link de checkout
-                }}
-                className="text-slate-400 hover:text-slate-600 text-sm font-medium underline underline-offset-4 decoration-slate-300 hover:decoration-slate-400 transition-colors bg-transparent border-none cursor-pointer"
-              >
-                Não, obrigado. Quero apenas o plano básico.
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </main>
   );
 }
