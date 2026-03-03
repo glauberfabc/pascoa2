@@ -17,6 +17,7 @@
     from {
       transform: translateX(-100%) skewX(-12deg);
     }
+
     to {
       transform: translateX(200%) skewX(-12deg);
     }
@@ -26,9 +27,11 @@
     0% {
       background-position: 0% 50%;
     }
+
     50% {
       background-position: 100% 50%;
     }
+
     100% {
       background-position: 0% 50%;
     }
@@ -45,4 +48,19 @@
 body {
   margin: 0;
   padding: 0;
+  /* Anti-copy classes */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Prevent image dragging */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
