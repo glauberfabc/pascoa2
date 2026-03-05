@@ -18,7 +18,13 @@ export default function Footer() {
                 <p className="max-w-md mx-auto text-blue-900 font-medium">
                     Sua jornada para uma Páscoa lucrativa e próspera começa agora. Não deixe essa oportunidade passar.
                 </p>
-                <button className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1">
+                <button
+                    onClick={() => {
+                        const el = document.getElementById('virada-de-chave');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1"
+                >
                     Garantir Vaga
                 </button>
                 <p className="text-sm text-sky-800 opacity-70 mt-4">

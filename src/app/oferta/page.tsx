@@ -17,7 +17,7 @@ const CountdownBox = () => {
   const seconds = timeLeft % 60;
 
   return (
-    <div className="w-full bg-red-50 border border-red-200 rounded-3xl p-6 md:p-8 text-center my-8 shadow-inner relative overflow-hidden">
+    <div id="ultima-chance" className="w-full bg-red-50 border border-red-200 rounded-3xl p-6 md:p-8 text-center my-8 shadow-inner relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
       <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse" style={{ animationDelay: '1s' }}></div>
       <h2 className="text-3xl md:text-5xl font-black text-red-600 mb-4 animate-bounce relative z-10 w-full whitespace-normal">
@@ -156,7 +156,7 @@ export default function Home() {
           </section>
 
           {/* Section 4 */}
-          <section className="min-h-screen flex items-center justify-center px-4 md:px-12 py-24 relative z-20">
+          <section id="virada-de-chave" className="min-h-screen flex items-center justify-center px-4 md:px-12 py-24 relative z-20">
             <div className="max-w-[95%] md:max-w-4xl text-center backdrop-blur-xl bg-white/70 p-6 md:p-12 rounded-2xl md:rounded-3xl border border-white/80 shadow-[0_0_50px_rgba(255,255,255,0.4)]">
               <h2 className="text-3xl md:text-6xl font-black mb-6" style={{ color: activeProduct.textColor }}>
                 {activeProduct.section4.title}
@@ -289,7 +289,12 @@ export default function Home() {
                         ))}
                       </ul>
 
-                      <button className="w-full relative px-6 py-4 rounded-xl font-bold text-lg transition-all bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300 flex items-center justify-center gap-2 mt-auto">
+                      <button
+                        onClick={() => {
+                          window.location.href = "https://ggcheckout.com.br/checkout/v3/Bhi9kTWrEx6yerd2uZZr";
+                        }}
+                        className="w-full relative px-6 py-4 rounded-xl font-bold text-lg transition-all bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300 flex items-center justify-center gap-2 mt-auto"
+                      >
                         COMEÇAR BÁSICO
                       </button>
                     </div>
@@ -353,7 +358,12 @@ export default function Home() {
                         ))}
                       </ul>
 
-                      <button className="w-full relative overflow-hidden group/btn px-6 py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-5px_rgba(236,72,153,0.5)] transition-all hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] hover:bg-right text-white flex items-center justify-center gap-3 mt-auto">
+                      <button
+                        onClick={() => {
+                          window.location.href = "https://ggcheckout.com.br/checkout/v3/HB859SHOL25bc9LSd7FG";
+                        }}
+                        className="w-full relative overflow-hidden group/btn px-6 py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-5px_rgba(236,72,153,0.5)] transition-all hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] hover:bg-right text-white flex items-center justify-center gap-3 mt-auto"
+                      >
                         <span className="relative z-10 flex items-center gap-2">
                           QUERO O COMPLETO
                           <svg className="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>

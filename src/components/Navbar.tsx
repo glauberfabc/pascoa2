@@ -17,7 +17,13 @@ export default function Navbar() {
                 <a href="#lucro" className="hover:text-pink-500 transition-colors">Lucro</a>
             </div>
 
-            <button className="flex items-center gap-2 bg-gradient-to-r from-pink-400 to-purple-500 text-white px-5 py-2.5 rounded-full font-bold shadow-[0_0_15px_rgba(255,182,193,0.6)] hover:shadow-[0_0_25px_rgba(195,177,225,0.8)] hover:scale-105 transition-all">
+            <button
+                onClick={() => {
+                    const el = document.getElementById('virada-de-chave');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center gap-2 bg-gradient-to-r from-pink-400 to-purple-500 text-white px-5 py-2.5 rounded-full font-bold shadow-[0_0_15px_rgba(255,182,193,0.6)] hover:shadow-[0_0_25px_rgba(195,177,225,0.8)] hover:scale-105 transition-all"
+            >
                 <Banknote className="w-4 h-4" />
                 Garantir Minha Vaga
             </button>
