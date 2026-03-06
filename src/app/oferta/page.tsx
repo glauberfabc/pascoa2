@@ -290,10 +290,11 @@ export default function Home() {
                       </ul>
 
                       <button
+                        id="checkout-basico-oferta"
                         onClick={() => {
                           window.location.href = "https://ggcheckout.com.br/checkout/v3/Bhi9kTWrEx6yerd2uZZr";
                         }}
-                        className="w-full relative px-6 py-4 rounded-xl font-bold text-lg transition-all bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300 flex items-center justify-center gap-2 mt-auto"
+                        className="utm-initiate-checkout w-full relative px-6 py-4 rounded-xl font-bold text-lg transition-all bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300 flex items-center justify-center gap-2 mt-auto"
                       >
                         COMEÇAR BÁSICO
                       </button>
@@ -359,10 +360,11 @@ export default function Home() {
                       </ul>
 
                       <button
+                        id="checkout-completo-oferta"
                         onClick={() => {
                           window.location.href = "https://ggcheckout.com.br/checkout/v3/HB859SHOL25bc9LSd7FG";
                         }}
-                        className="w-full relative overflow-hidden group/btn px-6 py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-5px_rgba(236,72,153,0.5)] transition-all hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] hover:bg-right text-white flex items-center justify-center gap-3 mt-auto"
+                        className="utm-initiate-checkout w-full relative overflow-hidden group/btn px-6 py-5 rounded-2xl font-black text-xl shadow-[0_10px_30px_-5px_rgba(236,72,153,0.5)] transition-all hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-[length:200%_auto] hover:bg-right text-white flex items-center justify-center gap-3 mt-auto"
                       >
                         <span className="relative z-10 flex items-center gap-2">
                           QUERO O COMPLETO

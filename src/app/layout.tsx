@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -35,6 +36,27 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* UTMfy Pixel Script */}
+        <Script id="utmfy-pixel" strategy="afterInteractive">
+          {`
+            window.pixelId = "69aa280dacfe402920a132b0";
+            var a = document.createElement("script");
+            a.setAttribute("async", "");
+            a.setAttribute("defer", "");
+            a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+            document.head.appendChild(a);
+          `}
+        </Script>
+
+        {/* UTMfy UTMS Script */}
+        <Script
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck
+          data-utmify-prevent-subids
+          strategy="afterInteractive"
+        />
+
         {children}
       </body>
     </html>
